@@ -19,15 +19,15 @@ DECLARE_COMPLETION(comp);
 static ssize_t complete_read(struct file *filp, char __user *buf, size_t count,
 			     loff_t *pos)
 {
-	pr_info("process %i (%s) going to sleep,waiting for writer/n",
+	pr_info("process %i (%s) going to sleep,waiting for writer\n",
 		current->pid, current->comm);
 	reader_count++;
-	pr_info("In read ,before comletion: reader count = %d /n",
+	pr_info("In read ,before comletion: reader count = %d \n",
 		reader_count);
 	wait_for_completion(&comp);
 	reader_count--;
-	pr_info("awoken %s (%i) /n", current->comm, current->pid);
-	pr_info("In read,after completion : reader count = %d /n",
+	pr_info("awoken %s (%i) \n", current->comm, current->pid);
+	pr_info("In read,after completion : reader count = %d \n",
 		reader_count);
 	if (reader_count == 0)
 		reinit_completion(&comp);
@@ -38,15 +38,15 @@ static ssize_t complete_read(struct file *filp, char __user *buf, size_t count,
 static ssize_t complete_write(struct file *filp, const char __user *buf,
 			      size_t count, loff_t *pos)
 {
-	pr_info("process %i (%s) awoking the readers.../n", current->pid,
+	pr_info("process %i (%s) awoking the readers...\n", current->pid,
 		current->comm);
-	pr_info("In write ,before do complete_all : reader count = %d /n",
+	pr_info("In write ,before do complete_all : reader count = %d \n",
 		reader_count);
 
 	if (reader_count != 0)
 		complete_all(&comp);
 
-	pr_info("In write ,after do complete_all : reader count = %d /n",
+	pr_info("In write ,after do complete_all : reader count = %d \n",
 		reader_count);
 
 	return count;
@@ -68,9 +68,8 @@ static int complete_init(void)
 	if (complete_major == 0)
 		complete_major = result;
 
-	pr_info("complete driver test init! complete_major=%d/n",
+	pr_info("complete driver test init! complete_major=%d\n",
 		complete_major);
-	pr_info("¾²Ì¬³õÊ¼»¯completion/n");
 
 	return 0;
 }
@@ -78,7 +77,7 @@ static int complete_init(void)
 static void complete_exit(void)
 {
 	unregister_chrdev(complete_major, "complete");
-	pr_info("complete driver    is removed/n");
+	pr_info("complete driver    is removed\n");
 }
 
 module_init(complete_init);

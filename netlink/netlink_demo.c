@@ -25,8 +25,8 @@ static void netlink_msg_handler(struct sk_buff *skb)
 	user_pid = nlh->nlmsg_pid;
 
 	msg = (char *)nlmsg_data(nlh);
-	pr_info("netlink_demo: received from user (pid=%d): %s\n",
-		user_pid, msg);
+	pr_info("netlink_demo: received from user (pid=%d): %s\n", user_pid,
+		msg);
 }
 
 static int __init simple_init(void)

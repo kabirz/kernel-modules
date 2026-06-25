@@ -9,7 +9,7 @@
 #include <linux/interrupt.h>
 #include <linux/slab.h>
 
-#define IRQ_NUM 1  /* Example IRQ number */
+#define IRQ_NUM 1 /* Example IRQ number */
 
 static int irq_count = 0;
 static struct tasklet_struct my_tasklet;
@@ -22,8 +22,8 @@ static void tasklet_func(struct tasklet_struct *t)
 static irqreturn_t simple_irq_handler(int irq, void *dev_id)
 {
 	irq_count++;
-	pr_info("simple_irq: interrupt %d received, count=%d\n",
-		irq, irq_count);
+	pr_info("simple_irq: interrupt %d received, count=%d\n", irq,
+		irq_count);
 
 	/* Schedule tasklet */
 	tasklet_schedule(&my_tasklet);
@@ -39,8 +39,8 @@ static int __init simple_init(void)
 	tasklet_setup(&my_tasklet, tasklet_func);
 
 	/* Request IRQ */
-	ret = request_irq(IRQ_NUM, simple_irq_handler,
-			  IRQF_SHARED, "simple_irq", (void *)&irq_count);
+	ret = request_irq(IRQ_NUM, simple_irq_handler, IRQF_SHARED,
+			  "simple_irq", (void *)&irq_count);
 	if (ret) {
 		pr_err("simple_irq: failed to request IRQ %d\n", IRQ_NUM);
 		tasklet_kill(&my_tasklet);

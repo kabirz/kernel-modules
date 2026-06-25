@@ -14,8 +14,7 @@
 
 static struct net_device *simple_dev;
 
-static netdev_tx_t simple_xmit(struct sk_buff *skb,
-			       struct net_device *dev)
+static netdev_tx_t simple_xmit(struct sk_buff *skb, struct net_device *dev)
 {
 	pr_info("simple_net: TX packet, len=%d\n", skb->len);
 	dev_kfree_skb_any(skb);

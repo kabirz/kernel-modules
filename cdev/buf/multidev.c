@@ -55,8 +55,8 @@ static __init int my_init(void)
 	}
 
 	for (i = 0; i < DEV_NUM; i++) {
-		ret = PTR_ERR(device_create(cls, NULL, dev_no + i, NULL,
-					    "led%d", i));
+		ret = PTR_ERR(
+			device_create(cls, NULL, dev_no + i, NULL, "led%d", i));
 		if (ret < 0)
 			goto destroy_devices;
 	}

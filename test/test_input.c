@@ -57,8 +57,8 @@ int main(void)
 
 	struct input_event ev;
 	while (read(fd, &ev, sizeof(ev)) == sizeof(ev)) {
-		printf("Event: type=%d code=%d value=%d\n",
-		       ev.type, ev.code, ev.value);
+		printf("Event: type=%d code=%d value=%d\n", ev.type, ev.code,
+		       ev.value);
 	}
 
 	close(fd);

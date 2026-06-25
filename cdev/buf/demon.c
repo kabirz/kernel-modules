@@ -70,7 +70,7 @@ static int __init char_init(void)
 {
 	int ret;
 
-	pr_alert("Initing......\n");
+	pr_info("Initing......\n");
 
 	cdev_init(&chardev, &char_ops);
 	chardev.owner = THIS_MODULE;
@@ -92,7 +92,7 @@ static int __init char_init(void)
 
 	my_class = class_create("xmimx_class");
 	if (IS_ERR(my_class)) {
-		pr_info("Err: failed in creating class.\n");
+		pr_err("failed in creating class.\n");
 		ret = PTR_ERR(my_class);
 		goto err_del_cdev;
 	}
@@ -110,7 +110,7 @@ err_unregister:
 static void __exit module_close(void)
 {
 	len = 0;
-	pr_alert("Unloading..........\n");
+	pr_info("Unloading..........\n");
 
 	device_destroy(my_class, dev);
 	class_destroy(my_class);

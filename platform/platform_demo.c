@@ -37,7 +37,9 @@ static void platform_demo_remove(struct platform_device *pdev)
 }
 
 static const struct of_device_id platform_demo_of_match[] = {
-	{ .compatible = "simple,platform-demo", },
+	{
+		.compatible = "simple,platform-demo",
+	},
 	{ /* sentinel */ }
 };
 MODULE_DEVICE_TABLE(of, platform_demo_of_match);

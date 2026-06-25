@@ -20,8 +20,8 @@ static ssize_t demo_value_show(struct kobject *kobj,
 }
 
 static ssize_t demo_value_store(struct kobject *kobj,
-				struct kobj_attribute *attr,
-				const char *buf, size_t count)
+				struct kobj_attribute *attr, const char *buf,
+				size_t count)
 {
 	int ret;
 
@@ -33,15 +33,15 @@ static ssize_t demo_value_store(struct kobject *kobj,
 	return count;
 }
 
-static ssize_t demo_text_show(struct kobject *kobj,
-			      struct kobj_attribute *attr, char *buf)
+static ssize_t demo_text_show(struct kobject *kobj, struct kobj_attribute *attr,
+			      char *buf)
 {
 	return sysfs_emit(buf, "%s\n", demo_text);
 }
 
 static ssize_t demo_text_store(struct kobject *kobj,
-			       struct kobj_attribute *attr,
-			       const char *buf, size_t count)
+			       struct kobj_attribute *attr, const char *buf,
+			       size_t count)
 {
 	size_t len = min(count, sizeof(demo_text) - 1);
 

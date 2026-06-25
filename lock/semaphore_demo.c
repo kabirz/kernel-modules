@@ -45,7 +45,8 @@ static int __init simple_init(void)
 		threads[i] = kthread_run(thread_func, (void *)(long)i,
 					 "sem_thread%d", i);
 		if (IS_ERR(threads[i])) {
-			pr_err("semaphore_demo: failed to create thread %d\n", i);
+			pr_err("semaphore_demo: failed to create thread %d\n",
+			       i);
 			while (i-- > 0)
 				kthread_stop(threads[i]);
 			return PTR_ERR(threads[i]);

@@ -8,7 +8,7 @@
 #include <linux/module.h>
 #include <linux/usb.h>
 
-#define VENDOR_ID  0x1234
+#define VENDOR_ID 0x1234
 #define PRODUCT_ID 0x5678
 
 struct simple_usb {

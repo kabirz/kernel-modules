@@ -34,13 +34,14 @@ int main(void)
 		close(sockfd);
 		return 1;
 	}
-	printf("Interface '%s' found (index=%d)\n", DEVICE_NAME, ifr.ifr_ifindex);
+	printf("Interface '%s' found (index=%d)\n", DEVICE_NAME,
+	       ifr.ifr_ifindex);
 
 	/* Get MAC */
 	if (ioctl(sockfd, SIOCGIFHWADDR, &ifr) == 0) {
 		unsigned char *mac = (unsigned char *)ifr.ifr_hwaddr.sa_data;
-		printf("MAC: %02x:%02x:%02x:%02x:%02x:%02x\n",
-		       mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+		printf("MAC: %02x:%02x:%02x:%02x:%02x:%02x\n", mac[0], mac[1],
+		       mac[2], mac[3], mac[4], mac[5]);
 	}
 
 	/* Bring up */

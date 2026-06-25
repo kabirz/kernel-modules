@@ -43,8 +43,8 @@ int main(void)
 
 	/* Test mmap */
 	printf("\n--- mmap Test ---\n");
-	mmap_buf = mmap(NULL, BUFFER_SIZE, PROT_READ | PROT_WRITE,
-			MAP_SHARED, fd, 0);
+	mmap_buf = mmap(NULL, BUFFER_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED,
+			fd, 0);
 	if (mmap_buf == MAP_FAILED) {
 		perror("mmap");
 		close(fd);

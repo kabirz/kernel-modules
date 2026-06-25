@@ -54,7 +54,9 @@ static void simple_gpio_remove(struct platform_device *pdev)
 }
 
 static const struct of_device_id simple_gpio_of_match[] = {
-	{ .compatible = "simple,gpio-demo", },
+	{
+		.compatible = "simple,gpio-demo",
+	},
 	{ /* sentinel */ }
 };
 MODULE_DEVICE_TABLE(of, simple_gpio_of_match);

@@ -40,13 +40,12 @@ static int mmap_demo_mmap(struct file *file, struct vm_area_struct *vma)
 			    size, vma->vm_page_prot))
 		return -EAGAIN;
 
-	pr_info("mmap_demo: mapped %lu bytes at 0x%lx\n",
-		size, vma->vm_start);
+	pr_info("mmap_demo: mapped %lu bytes at 0x%lx\n", size, vma->vm_start);
 	return 0;
 }
 
-static ssize_t mmap_demo_read(struct file *file, char __user *buf,
-			      size_t count, loff_t *ppos)
+static ssize_t mmap_demo_read(struct file *file, char __user *buf, size_t count,
+			      loff_t *ppos)
 {
 	size_t len;
 
