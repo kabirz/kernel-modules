@@ -9,3 +9,4 @@
 #   2. add one line here: obj-m += <name>/
 
 obj-m += test_mod/
+obj-m += hello/

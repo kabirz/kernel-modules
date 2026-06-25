@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# Per-module Kbuild for hello.
+
+obj-m += hello.o
