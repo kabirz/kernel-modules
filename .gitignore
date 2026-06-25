@@ -4,6 +4,7 @@
 *.mod.c
 *.mod.o
 *.o
+*.d
 *.a
 *.symvers
 *.cmd
@@ -31,3 +32,9 @@ cdev/mem_char/user_ioctl
 kobject/netevent
 random/main
 signal/daemon
+test/test_block
+test/test_input
+test/test_mmap
+test/test_net
+test/test_netlink
+test/test_sysfs

@@ -1,0 +1,3 @@
+# SPDX-License-Identifier: GPL-2.0
+
+obj-m += spinlock_demo.o mutex_demo.o semaphore_demo.o

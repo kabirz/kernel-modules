@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# User-space test programs for kernel modules.
+# Built via kernel build system using hostprogs-always-y.
+
+hostprogs-always-y := test_block test_mmap test_sysfs test_netlink test_net test_input
