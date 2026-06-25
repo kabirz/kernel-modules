@@ -1,0 +1,24 @@
+# Module build artifacts (matched recursively in all subdirectories)
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+*.o
+*.a
+*.symvers
+*.cmd
+modules.order
+modules.nsdeps
+Module.symvers
+.tmp_versions/
+compile_commands.json
+
+# Module signing keys — NEVER commit private keys
+*.key
+*.pem
+MOK.*
+
+# Editor / OS
+*.swp
+*~
+.DS_Store

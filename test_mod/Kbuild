@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# Per-module Kbuild. Read when kbuild descends into this directory from the
+# top-level Kbuild (which lists it via "obj-m += test_mod/").
+
+obj-m += test_mod.o
