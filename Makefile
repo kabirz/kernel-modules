@@ -21,7 +21,7 @@ CC := x86_64-linux-gnu-gcc
 
 PWD := $(shell pwd)
 
-.PHONY: all modules clean install help
+.PHONY: all modules clean install help cdb
 
 all modules:
 	$(MAKE) -C $(KDIR) M=$(PWD) CC=$(CC) modules
@@ -32,10 +32,18 @@ clean:
 install:
 	$(MAKE) -C $(KDIR) M=$(PWD) CC=$(CC) modules_install
 
+# Regenerate the Clang compilation database (compile_commands.json) for clangd.
+# Requires a prior successful build — it reads the .cmd files kbuild produced.
+cdb:
+	@$(KDIR)/scripts/clang-tools/gen_compile_commands.py $(PWD) >/dev/null \
+		&& echo "Generated compile_commands.json" \
+		|| echo "Error: run 'make' first to produce .cmd files"
+
 help:
 	@echo "Targets:"
 	@echo "  make          build all modules (recursively)"
 	@echo "  make clean    remove build artifacts"
 	@echo "  make install  install module(s) via $(KDIR)"
+	@echo "  make cdb      regenerate compile_commands.json (for clangd)"
 	@echo ""
 	@echo "Override kernel tree: make KDIR=/path/to/linux"
