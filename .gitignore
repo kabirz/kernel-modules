@@ -26,6 +26,7 @@ MOK.*
 
 .sisyphus
 
+# host tool
 cdev/buf/app
 cdev/buf/demon_test
 cdev/mem_char/user_ioctl
@@ -38,3 +39,9 @@ test/test_mmap
 test/test_net
 test/test_netlink
 test/test_sysfs
+
+# Configuration
+.config
+.config.old
+include/config
+include/generated

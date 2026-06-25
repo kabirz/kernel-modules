@@ -7,6 +7,8 @@ make                  # 构建所有模块和测试程序
 make clean            # 清理构建产物
 make KDIR=/path/to/kernel  # 针对指定内核树构建
 make cdb              # 重新生成 compile_commands.json (用于 clangd)
+make defconfig        # 生成默认配置（所有模块启用）
+make menuconfig       # 查看当前配置
 ```
 
 ## 代码检查
@@ -31,6 +33,7 @@ make cdb              # 重新生成 compile_commands.json (用于 clangd)
 - 顶层 `Kbuild` 通过 `obj-m += <name>/` 列出所有模块
 - 顶层 `Makefile` 是构建包装器（仅在第一遍读取）
 - `test/` 目录下的测试程序通过 `hostprogs-always-y` 构建
+- `Kconfig` 定义配置选项，`.config` 存储当前配置
 
 ## 添加新模块
 

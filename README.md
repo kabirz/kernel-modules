@@ -89,6 +89,34 @@ make KDIR=/home/zed/code/linux-7.1.1    # 针对本地内核树构建
 
 每个模块的 `.ko` 文件在其子目录中，例如 `hello/hello.ko`。
 
+### 配置模块选择
+
+项目支持通过 `.config` 文件选择要构建的模块：
+
+```bash
+make defconfig    # 生成默认配置（所有模块启用）
+make menuconfig   # 交互式 TUI 配置界面
+make              # 构建启用的模块
+```
+
+**安装 menuconfig 依赖：**
+
+```bash
+pip3 install kconfiglib
+```
+
+**TUI 快捷键：**
+- `J/K` 或方向键：上下移动
+- `L` 或回车：进入子菜单/切换选项
+- `H` 或 `ESC`：返回上一级
+- `Ctrl-D/U`：翻页
+
+**手动编辑配置：**
+
+编辑 `.config` 文件修改配置：
+- 启用模块：`CONFIG_XXX_MODULE=m`
+- 禁用模块：`CONFIG_XXX_MODULE=n`
+
 ## 测试程序
 
 `test/` 目录下的测试程序通过 `hostprogs-always-y` 使用内核构建系统编译：

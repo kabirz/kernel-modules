@@ -1,0 +1,152 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# Kconfig — Configuration options for selecting kernel modules to build
+#
+
+# CONFIG_MODULES is provided by the kernel, declared here so kconfiglib
+# knows tristate 'm' is valid for our module options.
+config MODULES
+	bool
+	default y
+
+menu "Kernel Module Examples"
+
+config HELLO_MODULE
+	tristate "Hello World module"
+	default m
+	help
+	  Basic example module demonstrating module load/unload and module parameters.
+
+config TEST_MOD_MODULE
+	tristate "Test module template"
+	default m
+	help
+	  Minimal kernel module template.
+
+config CDEV_MODULE
+	tristate "Character device driver example"
+	default m
+	help
+	  Character device driver example with read/write/ioctl operations.
+
+config KOBJECT_MODULE
+	tristate "Kernel object (kobject) example"
+	default m
+	help
+	  Demonstrates kobject, kset and sysfs integration.
+
+config MULTI_MODULE
+	tristate "Multi-file module example"
+	default m
+	help
+	  Demonstrates multi-file module compilation.
+
+config PROC_MODULE
+	tristate "/proc filesystem example"
+	default m
+	help
+	  Demonstrates /proc file creation and operations.
+
+config RANDOM_MODULE
+	tristate "Random number generation example"
+	default m
+	help
+	  Kernel random number generation example.
+
+config SCHEDULE_MODULE
+	tristate "Scheduling examples (timer, hrtimer, workqueue)"
+	default m
+	help
+	  Timer, high-resolution timer and workqueue examples.
+
+config SIGNAL_MODULE
+	tristate "Signal/async notification example"
+	default m
+	help
+	  Demonstrates signal and async I/O notification.
+
+config MISC_MODULE
+	tristate "Misc device example"
+	default m
+	help
+	  Misc device, completion and memory device examples.
+
+config BLOCK_MODULE
+	tristate "Block device driver example"
+	default m
+	help
+	  Simple block device driver using blk-mq interface.
+
+config NET_MODULE
+	tristate "Network device driver example"
+	default m
+	help
+	  Simple network device driver example.
+
+config USB_MODULE
+	tristate "USB device driver example"
+	default m
+	help
+	  USB device driver framework example.
+
+config INPUT_MODULE
+	tristate "Input device example"
+	default m
+	help
+	  Input subsystem device driver example.
+
+config GPIO_MODULE
+	tristate "GPIO driver example"
+	default m
+	help
+	  GPIO driver example using gpiod API.
+
+config IRQ_MODULE
+	tristate "Interrupt handler example"
+	default m
+	help
+	  Interrupt handling and tasklet example.
+
+config THREAD_MODULE
+	tristate "Kernel thread example"
+	default m
+	help
+	  Kernel thread (kthread) creation and management example.
+
+config LOCK_MODULE
+	tristate "Locking examples (spinlock, mutex, semaphore)"
+	default m
+	help
+	  Spinlock, mutex and semaphore examples.
+
+config MMAP_MODULE
+	tristate "Memory mapping example"
+	default m
+	help
+	  mmap operation example, mapping kernel memory to userspace.
+
+config NETLINK_MODULE
+	tristate "Netlink communication example"
+	default m
+	help
+	  Kernel-userspace Netlink communication example.
+
+config SYSFS_MODULE
+	tristate "Sysfs attribute interface example"
+	default m
+	help
+	  Sysfs attribute creation and operations example.
+
+config PLATFORM_MODULE
+	tristate "Platform device driver example"
+	default m
+	help
+	  Platform device driver framework example.
+
+config TEST_PROGRAMS
+	bool "User-space test programs"
+	default y
+	help
+	  Build user-space test programs in the test/ directory.
+
+endmenu
