@@ -28,3 +28,4 @@ module_exit(test_mod_exit);
 MODULE_AUTHOR("kabirz <jxwazxzhp@126.com>");
 MODULE_DESCRIPTION("Minimal kernel test module");
 MODULE_LICENSE("GPL");
+MODULE_VERSION("1.0");

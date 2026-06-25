@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0
+
+obj-m += test1.o test2.o test3.o demon.o hotplug.o multidev.o
+hostprogs-always-y :=app demon_test

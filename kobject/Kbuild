@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0
+
+obj-m += exec.o kobject.o kset.o platform.o seqfile.o seq_hello.o
+CFLAGS_exec.o := -D'EXECPATH="$(kbuild-dir)/exe.txt"'
+hostprogs-always-y := netevent

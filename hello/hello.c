@@ -9,7 +9,7 @@
 #include <linux/module.h>
 #include <linux/moduleparam.h>
 
-static int repeat = 1;          /* how many times to greet */
+static int repeat = 1; /* how many times to greet */
 module_param(repeat, int, 0644);
 MODULE_PARM_DESC(repeat, "Number of times to print the greeting (default 1)");
 
@@ -33,3 +33,4 @@ module_exit(hello_exit);
 MODULE_AUTHOR("kabirz <jxwazxzhp@126.com>");
 MODULE_DESCRIPTION("Example module with a parameter");
 MODULE_LICENSE("GPL");
+MODULE_VERSION("1.0");

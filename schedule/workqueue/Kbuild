@@ -1,0 +1,3 @@
+# SPDX-License-Identifier: GPL-2.0
+
+obj-m += work1.o work2.o work3.o init_work.o init_delay_work.o single.o single_queue.o

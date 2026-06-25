@@ -10,3 +10,12 @@
 
 obj-m += test_mod/
 obj-m += hello/
+obj-m += cdev/
+obj-m += kobject/
+obj-m += sample/
+obj-m += multi/
+obj-m += proc/
+obj-m += random/
+obj-m += schedule/
+obj-m += signal/
+obj-m += misc/

@@ -6,6 +6,7 @@
 # kernel tree to compile the out-of-tree module declared in Kbuild.
 # NOTE: obj-m is intentionally NOT set here — it lives in Kbuild only, so
 # the two passes never interfere.
+# (via HOSTCC).  In modern kernels hostprogs-y in Kbuild is NOT supported for
 
 # Path to a prebuilt kernel tree (config + headers + Module.symvers).
 # Default: the running kernel's build tree. Override, e.g. against a local tree:
@@ -24,7 +25,9 @@ PWD := $(shell pwd)
 .PHONY: all modules clean install help cdb
 
 all modules:
-	$(MAKE) -C $(KDIR) M=$(PWD) CC=$(CC) modules
+	@$(MAKE) -C $(KDIR) M=$(PWD) CC=$(CC) modules 2>&1 \
+		| grep -v "Skipping BTF generation for.*due to unavailability of vmlinux" \
+		|| [ $$? = 1 ]
 
 clean:
 	$(MAKE) -C $(KDIR) M=$(PWD) CC=$(CC) clean

@@ -22,3 +22,12 @@ MOK.*
 *.swp
 *~
 .DS_Store
+
+.sisyphus
+
+cdev/buf/app
+cdev/buf/demon_test
+cdev/mem_char/user_ioctl
+kobject/netevent
+random/main
+signal/daemon
